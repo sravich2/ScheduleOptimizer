@@ -1,0 +1,2092 @@
+<table id="term-dt">
+                <thead>
+                    <tr>
+                        <th>SUBJECT CODE</th>
+                        <th>SUBJECT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        
+                            <tr>
+                                <td>
+                                     AAS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AAS">
+                                        Asian American Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ABE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ABE">
+                                        Agricultural and Biological Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ACCY
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ACCY">
+                                        Accountancy
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ACE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ACE">
+                                        Agricultural and Consumer Economics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ACES
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ACES">
+                                        Agricultural, Consumer and Environmental Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ADV
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ADV">
+                                        Advertising
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AE">
+                                        Aerospace Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AFAS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AFAS">
+                                        Air Force Aerospace Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AFRO
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AFRO">
+                                        African American Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AFST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AFST">
+                                        African Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AGCM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AGCM">
+                                        Agricultural Communications
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AGED
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AGED">
+                                        Agricultural Education
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AHS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AHS">
+                                        Applied Health Sciences Courses
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AIS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AIS">
+                                        American Indian Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ANSC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ANSC">
+                                        Animal Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ANTH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ANTH">
+                                        Anthropology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARAB
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARAB">
+                                        Arabic
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARCH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARCH">
+                                        Architecture
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ART
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ART">
+                                        Art
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARTD
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARTD">
+                                        Art--Design
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARTE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARTE">
+                                        Art--Education
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARTF
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARTF">
+                                        Art--Foundation
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARTH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARTH">
+                                        Art--History
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ARTS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ARTS">
+                                        Art--Studio
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ASST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ASST">
+                                        Asian Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ASTR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ASTR">
+                                        Astronomy
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ATMS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ATMS">
+                                        Atmospheric Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     AVI
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/AVI">
+                                        Aviation
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BADM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BADM">
+                                        Business Administration
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BASQ
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BASQ">
+                                        Basque
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BCS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BCS">
+                                        Bosnian-Croatian-Serbian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BIOC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BIOC">
+                                        Biochemistry
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BIOE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BIOE">
+                                        Bioengineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BIOL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BIOL">
+                                        Biology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BIOP
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BIOP">
+                                        Biophysics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BMNA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BMNA">
+                                        Bamana
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BTW
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BTW">
+                                        Business and Technical Writing
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BULG
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BULG">
+                                        Bulgarian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     BUS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/BUS">
+                                        Business
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CAS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CAS">
+                                        Center for Advanced Study
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CATL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CATL">
+                                        Catalan
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CB
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CB">
+                                        Comparative Biosciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CDB
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CDB">
+                                        Cell and Developmental Biology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CEE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CEE">
+                                        Civil and Environmental Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CHBE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CHBE">
+                                        Chemical and Biomolecular Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CHEM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CHEM">
+                                        Chemistry
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CHIN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CHIN">
+                                        Chinese
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CHLH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CHLH">
+                                        Community Health
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CHP
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CHP">
+                                        Campus Honors Program Courses
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CI
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CI">
+                                        Curriculum and Instruction
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CIC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CIC">
+                                        Committee on Inst Cooperation
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CLCV
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CLCV">
+                                        Classical Civilization
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CMN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CMN">
+                                        Communication
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CPSC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CPSC">
+                                        Crop Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CS">
+                                        Computer Science
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CSE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CSE">
+                                        Computational Science and Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CW
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CW">
+                                        Creative Writing
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CWL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CWL">
+                                        Comparative and World Literature
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     CZCH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/CZCH">
+                                        Czech
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     DANC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/DANC">
+                                        Dance
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EALC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EALC">
+                                        East Asian Language and Culture
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ECE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ECE">
+                                        Electrical and Computer Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ECON
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ECON">
+                                        Economics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EDPR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EDPR">
+                                        Educational Practice
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EDUC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EDUC">
+                                        Education
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EIL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EIL">
+                                        English as an International Language
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ENG
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ENG">
+                                        Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ENGH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ENGH">
+                                        Engineering Honors
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ENGL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ENGL">
+                                        English
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ENSU
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ENSU">
+                                        Environmental Sustainability
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ENT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ENT">
+                                        Entomology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ENVS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ENVS">
+                                        Environmental Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EOL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EOL">
+                                        Educational Organization and Leadership
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EPS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EPS">
+                                        Educational Policy Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EPSY
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EPSY">
+                                        Educational Psychology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ESE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ESE">
+                                        Earth, Society, and Environment
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ESL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ESL">
+                                        English as a Second Language
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     EURO
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/EURO">
+                                        European Union Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     FAA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/FAA">
+                                        Fine and Applied Arts
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     FIN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/FIN">
+                                        Finance
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     FR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/FR">
+                                        French
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     FSHN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/FSHN">
+                                        Food Science and Human Nutrition
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GC">
+                                        Graduate College
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GE">
+                                        General Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GEOG
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GEOG">
+                                        Geography
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GEOL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GEOL">
+                                        Geology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GER
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GER">
+                                        German
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GLBL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GLBL">
+                                        Global Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GMC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GMC">
+                                        Germanic
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GRK
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GRK">
+                                        Greek
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GRKM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GRKM">
+                                        Modern Greek
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GS">
+                                        General Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     GWS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/GWS">
+                                        Gender and Women&#039;s Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HCD
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HCD">
+                                        Human and Community Development
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HDES
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HDES">
+                                        Human Dimensions of Environmental Systems
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HDFS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HDFS">
+                                        Human Development and Family Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HEBR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HEBR">
+                                        Hebrew, Modern and Classical
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HIST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HIST">
+                                        History
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HNDI
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HNDI">
+                                        Hindi
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HORT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HORT">
+                                        Horticulture
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HRD
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HRD">
+                                        Human Resource Development
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HRE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HRE">
+                                        Human Resource Education
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     HUM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/HUM">
+                                        Humanities Courses
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     IB
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/IB">
+                                        Integrative Biology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     IE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/IE">
+                                        Industrial Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     IHLT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/IHLT">
+                                        i-Health Program
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     INFO
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/INFO">
+                                        Informatics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ITAL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ITAL">
+                                        Italian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     JAPN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/JAPN">
+                                        Japanese
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     JOUR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/JOUR">
+                                        Journalism
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     JS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/JS">
+                                        Jewish Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     KIN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/KIN">
+                                        Kinesiology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     KOR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/KOR">
+                                        Korean
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LA">
+                                        Landscape Architecture
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LAS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LAS">
+                                        Liberal Arts and Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LAST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LAST">
+                                        Latin American and Caribbean Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LAT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LAT">
+                                        Latin
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LAW
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LAW">
+                                        Law
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LER
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LER">
+                                        Labor and Employment Relations
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LGLA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LGLA">
+                                        Lingala
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LING
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LING">
+                                        Linguistics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LIS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LIS">
+                                        Library and Information Science
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     LLS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/LLS">
+                                        Latina/Latino Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MACS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MACS">
+                                        Media and Cinema Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MATH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MATH">
+                                        Mathematics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MBA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MBA">
+                                        Regular MBA Program Administration
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MCB
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MCB">
+                                        Molecular and Cell Biology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MDIA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MDIA">
+                                        Media
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MDVL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MDVL">
+                                        Medieval Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ME
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ME">
+                                        Mechanical Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MICR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MICR">
+                                        Microbiology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MILS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MILS">
+                                        Military Science
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MIP
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MIP">
+                                        Molecular and Integrative Physiology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MSE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MSE">
+                                        Materials Science and Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MSP
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MSP">
+                                        Medical Scholars Program
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MUS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MUS">
+                                        Music
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     MUSE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/MUSE">
+                                        Museum Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     NEUR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/NEUR">
+                                        Neuroscience
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     NPRE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/NPRE">
+                                        Nuclear, Plasma, and Radiological Engineering
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     NRES
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/NRES">
+                                        Natural Resources and Environmental Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     NS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/NS">
+                                        Naval Science
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     NUTR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/NUTR">
+                                        Nutritional Sciences
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PATH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PATH">
+                                        Pathobiology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PBIO
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PBIO">
+                                        Plant Biology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PERS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PERS">
+                                        Persian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PHIL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PHIL">
+                                        Philosophy
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PHYS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PHYS">
+                                        Physics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PLPA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PLPA">
+                                        Plant Pathology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     POL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/POL">
+                                        Polish
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PORT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PORT">
+                                        Portuguese
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PS">
+                                        Political Science
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PSM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PSM">
+                                        Professional Science Master&#039;s Program
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     PSYC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/PSYC">
+                                        Psychology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     REES
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/REES">
+                                        Russian, East European and Eurasian Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     REHB
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/REHB">
+                                        Rehabilitation Counseling
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     RHET
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/RHET">
+                                        Rhetoric and Composition
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     RLST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/RLST">
+                                        Religious Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     RMLG
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/RMLG">
+                                        Romance Linguistics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     RSOC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/RSOC">
+                                        Rural Sociology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     RST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/RST">
+                                        Recreation, Sport, and Tourism
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     RUSS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/RUSS">
+                                        Russian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SAME
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SAME">
+                                        South Asian and Middle Eastern Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SCAN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SCAN">
+                                        Scandinavian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SHS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SHS">
+                                        Speech and Hearing Science
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SLAV
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SLAV">
+                                        Slavic
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SLCL
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SLCL">
+                                        Literatures, Cultures, and Linguistics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SLS
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SLS">
+                                        Second Language Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SNSK
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SNSK">
+                                        Sanskrit
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SOC
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SOC">
+                                        Sociology
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SOCW
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SOCW">
+                                        Social Work
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SPAN
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SPAN">
+                                        Spanish
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SPED
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SPED">
+                                        Special Education
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     STAT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/STAT">
+                                        Statistics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     SWAH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/SWAH">
+                                        Swahili
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     TAM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/TAM">
+                                        Theoretical and Applied Mechanics
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     TE
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/TE">
+                                        Technology Entrepreneurship
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     THEA
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/THEA">
+                                        Theatre
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     TMGT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/TMGT">
+                                        Technology and Management Courses
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     TRST
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/TRST">
+                                        Translation Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     TSM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/TSM">
+                                        Technical Systems Management
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     TURK
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/TURK">
+                                        Turkish
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     UKR
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/UKR">
+                                        Ukrainian
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     UP
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/UP">
+                                        Urban and Regional Planning
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     VCM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/VCM">
+                                        Veterinary Clinical Medicine
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     VM
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/VM">
+                                        Veterinary Medicine Courses
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     WLOF
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/WLOF">
+                                        Wolof
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     WRIT
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/WRIT">
+                                        Writing Studies
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     YDSH
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/YDSH">
+                                        Yiddish
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            <tr>
+                                <td>
+                                     ZULU
+                                </td>
+                                <td>
+                                    <a href="/schedule/2015/spring/ZULU">
+                                        Zulu
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                        
+                </tbody>
+            </table>
