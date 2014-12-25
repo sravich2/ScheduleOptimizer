@@ -7,7 +7,6 @@ import org.w3c.dom.Document;
  * Module, defined as a component of any course.
  * Examples: Lecture, Discussion, Laboratory
  * @author sravich2
- * 
  */
 
 public class Meeting {
@@ -24,14 +23,11 @@ public class Meeting {
 	public int startTime;
 	public int endTime;
 	public int duration;
-	
-	
-	//String type, String daysOfTheWeek, String dateRange, 
-		//	String timeRange, String instructor, String building)
 
 	public Meeting clone() {
 		return new Meeting(this.inSection, this.type, String.valueOf(this.daysOfTheWeek), this.startTime, this.endTime, this.building, this.instructor, this.startDate, this.endDate);
 	}
+
 	public Meeting(Section inSection, String type, String days, String startTime, String endTime, String building, String instructor, String startDate, String endDate){
 		this.inSection = inSection;
 		this.type = type;

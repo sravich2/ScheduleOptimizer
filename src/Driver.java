@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -22,7 +23,6 @@ import java.util.regex.Pattern;
 public class Driver {
 
 	public static DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-
 	public static DocumentBuilder dBuilder = null;
 	public static ArrayList<String> coursesTaken;
 	public static Preferences pref = new Preferences();
@@ -33,29 +33,22 @@ public class Driver {
 
 		long time = System.currentTimeMillis();
 		Worker help = new Worker();
-		ScheduleScorer2 scorer = new ScheduleScorer2(pref);
-
+		ScheduleScorer scorer = new ScheduleScorer(pref);
+		SchedulesBuilder cb3 = new SchedulesBuilder();
 		ArrayList<Course> courseList = new ArrayList<Course>();
-
 		updateCourseSectionMeetingObjects(coursesTaken, courseList);
-
-		CourseBuilder3 cb3 = new CourseBuilder3();
 		ArrayList<Schedule> allSchedules = cb3.getAllSchedulesFromCourses(courseList);
 		ArrayList<ArrayList<Meeting>> bestSchedule = new ArrayList<ArrayList<Meeting>>();
 		ArrayList<String> scheduleReadable = new ArrayList<String>();
-
+		ArrayList<StringBuilder> bestLog = new ArrayList<StringBuilder>();
 		double bestScore = -999;
 		int countOfBestSchedule = 0;
 		int countOfExecutions = 0;
 
-		ArrayList<StringBuilder> bestLog = new ArrayList<StringBuilder>();
 
-		while (allSchedules!=null && countOfExecutions < allSchedules.size()) {
-
+		while (allSchedules != null && countOfExecutions < allSchedules.size()) {
 			Schedule scheduleForSemester = allSchedules.get(countOfExecutions);
-
 			scheduleForSemester.twoDimensionalSchedule = help.convertModuleArrayToSchedule(scheduleForSemester.mainSchedule);
-
 			double currentScore = (scorer.scoreSchedule(scheduleForSemester.twoDimensionalSchedule, scheduleForSemester.CRNList));
 
 			if (currentScore > bestScore) {
@@ -72,18 +65,16 @@ public class Driver {
 
 			}
 			else if (currentScore == bestScore) {
-				{
-					bestLog.add(new StringBuilder(scorer.log));
-					bestSchedule.add(help.deepCopyMeetingAL(scheduleForSemester.mainSchedule));
-					scheduleReadable.add(help.toString(scheduleForSemester.twoDimensionalSchedule));
-					countOfBestSchedule++;
-				}
+
+				bestLog.add(new StringBuilder(scorer.log));
+				bestSchedule.add(help.deepCopyMeetingAL(scheduleForSemester.mainSchedule));
+				scheduleReadable.add(help.toString(scheduleForSemester.twoDimensionalSchedule));
+				countOfBestSchedule++;
 			}
 			countOfExecutions++;
-
 		}
 
-		System.out.println("\nFound " + (countOfBestSchedule) + ((countOfBestSchedule ==1)? (" optimal schedule"):(" optimal schedules")) + " in " + (System.currentTimeMillis()-time) + " ms");
+		System.out.println("\nFound " + (countOfBestSchedule) + ((countOfBestSchedule == 1) ? (" optimal schedule") : (" optimal schedules")) + " in " + (System.currentTimeMillis() - time) + " ms");
 		System.out.println("--------------------------------------------------------------------------------");
 		for (int i = 0; i < countOfBestSchedule; i++) {
 			System.out.println(scheduleReadable.get(i));
@@ -99,17 +90,14 @@ public class Driver {
 
 	public static ArrayList<ArrayList<Section>> partitionSections(ArrayList<Section> sections) {
 
-		if (sections.size()==0)
-			return null;
+		if (sections.size() == 0) return null;
 
 		ArrayList<ArrayList<Section>> partitionedSections = new ArrayList<ArrayList<Section>>();
-
-		ArrayList<Section> temp = new ArrayList<Section>();
-		temp.add(sections.get(0));
-		partitionedSections.add(temp);
+		ArrayList<Section> tempSections = new ArrayList<Section>();
+		tempSections.add(sections.get(0));
+		partitionedSections.add(tempSections);
 
 		for (int i = 1; i < sections.size(); i++) {
-
 			for (int j = 0; j < partitionedSections.size(); j++) {
 
 				ArrayList<Meeting> meetingsInPartitionedElement = partitionedSections.get(j).get(0).meetingsInSection;
@@ -140,8 +128,10 @@ public class Driver {
 			}
 
 		}
+
 		return partitionedSections;
 	}
+
 
 	public static void updateCourseSectionMeetingObjects(ArrayList<String> coursesTaken, ArrayList<Course> courseList) {
 
@@ -160,10 +150,9 @@ public class Driver {
 				String[] tempCourseInfo = coursesTaken.get(courseCount).split("(?<=[a-zA-Z])(\\s)*(?=\\d)");
 				String deptCode = tempCourseInfo[0];
 
-				if (coursesTaken.get(courseCount).indexOf(":") == -1){
+				if (!coursesTaken.get(courseCount).contains(":")) {
 					courseCodeNumber = tempCourseInfo[1];
-				}
-				else {
+				} else {
 					courseCodeNumber = tempCourseInfo[1].substring(0, tempCourseInfo[1].indexOf(":")).trim();
 					sectionPreference.add(tempCourseInfo[1].split("\\s*:\\s*")[1].trim());
 
@@ -184,8 +173,8 @@ public class Driver {
 								courseList.add(new Course(courseName, courseCreditHours, courseCode, 0));
 								break;
 							}
-							if (j == tempCourseList.getLength()-1){
-								System.out.println("\n"+coursesTaken.get(courseCount)+ " does not exist or is not being offered in Spring 2015. Skipping over this course...");
+							if (j == tempCourseList.getLength() - 1) {
+								System.out.println("\n" + coursesTaken.get(courseCount) + " does not exist or is not being offered in Spring 2015. Skipping over this course...");
 								coursesTaken.remove(courseCount);
 
 								break courseLoop;
@@ -206,12 +195,10 @@ public class Driver {
 								continue;
 							}*/
 							String sectionCode = sectionElement.getAttribute("sectionNumber");
-							if (sectionPreference.size()!=0){
-								for (int l = 0;l<sectionPreference.size();l++){
-									if (sectionCode.contains(sectionPreference.get(l).toUpperCase()))
-										break;
-									if (i == sectionPreference.size()-1)
-										continue sectionLoop;
+							if (sectionPreference.size() != 0) {
+								for (int l = 0; l < sectionPreference.size(); l++) {
+									if (sectionCode.substring(0,1).equals(sectionPreference.get(l).toUpperCase())) break;
+									if (i == sectionPreference.size() - 1) continue sectionLoop;
 								}
 							}
 
@@ -239,6 +226,7 @@ public class Driver {
 
 						}
 						courseList.get(courseCount).partitionedSectionsInCourse = partitionSections(prunedSectionList);
+
 						break;
 					}
 
@@ -257,7 +245,7 @@ public class Driver {
 	public static void getUserInput() {
 
 		Scanner in = new Scanner(System.in);
-		System.out.println("Enter the courses you wish to take in Spring 2015, separated by commas");
+		System.out.println("Enter the courses you wish to take in Spring 2015, separated by commas.\nIf you're taking any honors or Special Topics course, add \":<section>\" to the end of the course code");
 		String input = in.nextLine();
 		coursesTaken = new ArrayList<String>(Arrays.asList(input.split("\\s*,\\s*")));
 
@@ -272,10 +260,10 @@ public class Driver {
 		System.out.println("\nWill you be walking between classes?");
 		pref.walk = Pattern.compile("[yY][{es}{ES}]?|1").matcher(in.nextLine()).find();
 
-		System.out.println("\nEnter the maximum minutes in a day");
+		System.out.println("\nEnter the maximum minutes in class in a day");
 		pref.maxMinutesInADay = Integer.valueOf(in.nextLine());
 
-		System.out.println("\nEnter the maximum minutes in a row");
+		System.out.println("\nEnter the maximum minutes in class in a row");
 		pref.maxMinutesInARow = Integer.valueOf(in.nextLine());
 
 		System.out.println("\nIf you have any preferred instructors, enter their last names");
@@ -283,7 +271,7 @@ public class Driver {
 
 		if (!(input.length() == 0)) {
 			pref.preferredInstructors = new ArrayList<String>(Arrays.asList(input.split("(\\s*,\\s*)")));
-			for (int i = 0;i<pref.preferredInstructors.size();i++){
+			for (int i = 0; i < pref.preferredInstructors.size(); i++) {
 				pref.preferredInstructors.set(i, StringUtils.capitalize(pref.preferredInstructors.get(i)));
 			}
 		}
@@ -310,8 +298,7 @@ public class Driver {
 
 		System.out.println("\nWould you like us to try to fit in a day with fewer classes than normal(0, 1 or 2)?");
 		input = in.nextLine();
-		if (Pattern.compile("[nN][oO]?|0").matcher(input).find())
-			pref.dayWithMinimum = 3;
+		if (Pattern.compile("[nN][oO]?|0").matcher(input).find()) pref.dayWithMinimum = 3;
 		else pref.dayWithMinimum = Integer.valueOf(input);
 
 	}

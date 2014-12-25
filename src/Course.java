@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * Course as a standalone entity BEFORE module selection, therefore contains ALL
- * available modules for course Examples: CS125, CS173
+ * available modules for course. Examples: CS125, CS173
  * 
  * @author Sachin
  *

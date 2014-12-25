@@ -1,16 +1,16 @@
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
-public class CourseBuilder3 {
+public class SchedulesBuilder {
 
 	Worker help = new Worker();
 
 	public ArrayList<Schedule> getAllSchedulesFromCourses(ArrayList<Course> coursesTaken) {
-		
+
 		ArrayList<ArrayList<Section>> sectionLists = new ArrayList<ArrayList<Section>>();
-		for (Course aCoursesTaken : coursesTaken) {
-			if (aCoursesTaken.partitionedSectionsInCourse != null) {
-				for (ArrayList<Section> aPartitionedSectionsInCourse : aCoursesTaken.partitionedSectionsInCourse) {
+		for (Course course : coursesTaken) {
+			if (course.partitionedSectionsInCourse != null) {
+				for (ArrayList<Section> aPartitionedSectionsInCourse : course.partitionedSectionsInCourse) {
 					Section sampleSectionInPartition = aPartitionedSectionsInCourse.get(0);
 					if (!sampleSectionInPartition.meetingsInSection.get(0).type.equalsIgnoreCase("online")) {
 						if (!sampleSectionInPartition.meetingsInSection.get(0).type.equalsIgnoreCase("lecture") && sampleSectionInPartition.meetingsInSection.get(0).daysOfTheWeek.length > 1 &&
@@ -19,7 +19,6 @@ public class CourseBuilder3 {
 							continue;
 						sectionLists.add(aPartitionedSectionsInCourse);
 					}
-
 				}
 			}
 		}
@@ -44,22 +43,20 @@ public class CourseBuilder3 {
 
 		//Recursive Case
 		else {
-			ArrayList<Schedule> comboOfRemainingSections;
+			ArrayList<Schedule> incompleteSchedules;
 			ArrayList<ArrayList<Section>> copyOfSectionLists = new ArrayList<ArrayList<Section>>(sectionLists);
 
 			copyOfSectionLists.remove(0);
-
-			comboOfRemainingSections = getAllSchedules(copyOfSectionLists);
+			incompleteSchedules = getAllSchedules(copyOfSectionLists);
 
 			for (int i = 0; i < sectionLists.get(0).size(); i++) {
 
 				Section currentSection = sectionLists.get(0).get(i);
 
-				for (Schedule comboOfRemainingSection : comboOfRemainingSections) {
+				for (Schedule incompleteSchedule : incompleteSchedules) {
 
-					ArrayList<Meeting> currentMeetingAL = help.deepCopyMeetingAL(comboOfRemainingSection.mainSchedule);
+					ArrayList<Meeting> currentMeetingAL = help.deepCopyMeetingAL(incompleteSchedule.mainSchedule);
 					currentMeetingAL.addAll(currentSection.meetingsInSection);
-
 					boolean conflict = false;
 					loop:
 					for (int m = currentMeetingAL.size()-1; m > currentMeetingAL.size()-1-currentSection.meetingsInSection.size(); m--) {
@@ -72,29 +69,16 @@ public class CourseBuilder3 {
 					}
 
 					if (!conflict) {
-						ArrayList<String> temp = new ArrayList<String>(comboOfRemainingSection.CRNList);
-						temp.add(currentSection.CRN);
-						finalArray.add(new Schedule(currentMeetingAL, temp));
+						ArrayList<String> crnList = new ArrayList<String>(incompleteSchedule.CRNList);
+						crnList.add(currentSection.CRN);
+						finalArray.add(new Schedule(currentMeetingAL, crnList));
 					}
 
 				}
-
-
 			}
 			return finalArray;
 		}
 		
-	}
-
-	public boolean checkConflictInSchedule(ArrayList<Meeting> schedule) {
-		for (int m = 0; m < schedule.size(); m++) {
-			for (int n = 0; n < schedule.size(); n++) {
-				if (m != n && help.checkConflict(schedule.get(m), schedule.get(n))) {
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 
 }

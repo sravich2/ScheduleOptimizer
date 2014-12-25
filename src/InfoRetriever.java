@@ -27,8 +27,8 @@ import org.xml.sax.SAXException;
  */
 //http://www.mkyong.com/java/how-to-create-xml-file-in-java-dom/
 //http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
-public class InfoRetriever2{
-	public int val;
+public class InfoRetriever {
+
 	StringBuffer baseUrl = new StringBuffer("http://courses.illinois.edu/cisapp/explorer/schedule/");
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder;
@@ -104,7 +104,6 @@ public class InfoRetriever2{
 			
 			String deptName = deptInfo.getElementsByTagName("unitName").item(0).getTextContent();
 			Node deptNode = root.appendChild(this.createDept(doc, dept, deptName));
-			
 			
 			NodeList coursesOffered = deptInfo.getElementsByTagName("course");
 
@@ -248,7 +247,6 @@ public class InfoRetriever2{
 
 					if ((typeNL = current.getElementsByTagName("type")).getLength() != 0)
 						type = typeNL.item(0).getTextContent();
-
 					if ((startNL = current.getElementsByTagName("start")).getLength() != 0)
 						startTime = startNL.item(0).getTextContent();
 					if ((endNL = current.getElementsByTagName("end")).getLength() != 0)
