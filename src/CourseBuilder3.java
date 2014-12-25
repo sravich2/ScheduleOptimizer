@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 
 public class CourseBuilder3 {
@@ -72,9 +72,9 @@ public class CourseBuilder3 {
 					}
 
 					if (!conflict) {
-						ArrayList<String> temp = new ArrayList<String>(comboOfRemainingSection.CRNList);
-						temp.add(currentSection.CRN);
-						finalArray.add(new Schedule(currentMeetingAL, temp));
+						ArrayList<String> crnList = new ArrayList<String>(comboOfRemainingSection.CRNList);
+						crnList.add(currentSection.CRN);
+						finalArray.add(new Schedule(currentMeetingAL, crnList));
 					}
 
 				}
