@@ -9,7 +9,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -145,7 +144,7 @@ public class Driver {
 
 			courseLoop:
 			for (int courseCount = 0; courseCount < coursesTaken.size(); courseCount++) {
-				String courseCodeNumber = "";
+				String courseCodeNumber;
 				ArrayList<String> sectionPreference = new ArrayList<String>();
 				String[] tempCourseInfo = coursesTaken.get(courseCount).split("(?<=[a-zA-Z])(\\s)*(?=\\d)");
 				String deptCode = tempCourseInfo[0];

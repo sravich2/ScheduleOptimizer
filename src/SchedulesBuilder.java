@@ -13,10 +13,6 @@ public class SchedulesBuilder {
 				for (ArrayList<Section> aPartitionedSectionsInCourse : course.partitionedSectionsInCourse) {
 					Section sampleSectionInPartition = aPartitionedSectionsInCourse.get(0);
 					if (!sampleSectionInPartition.meetingsInSection.get(0).type.equalsIgnoreCase("online")) {
-						if (!sampleSectionInPartition.meetingsInSection.get(0).type.equalsIgnoreCase("lecture") && sampleSectionInPartition.meetingsInSection.get(0).daysOfTheWeek.length > 1 &&
-								sampleSectionInPartition.status.contains("estrict"))
-
-							continue;
 						sectionLists.add(aPartitionedSectionsInCourse);
 					}
 				}
