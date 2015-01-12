@@ -5,7 +5,7 @@
 //
 //	Worker help = new Worker();
 //
-//	public ArrayList<Schedule> getAllSchedulesFromCourses(ArrayList<Course> coursesTaken) {
+//	public ArrayList<Schedule> getAllSchedulesFromCourses2(ArrayList<Course> coursesTaken) {
 //
 //		ArrayList<ArrayList<ArrayList<Section>>> sectionLists = new ArrayList<ArrayList<ArrayList<Section>>>();
 //		for (Course course : coursesTaken) {

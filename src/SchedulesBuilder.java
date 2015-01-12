@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -6,7 +5,42 @@ public class SchedulesBuilder {
 
 	Worker help = new Worker();
 
-	public ArrayList<Schedule> getAllSchedulesFromCourses(ArrayList<Course> coursesTaken) {
+	public ArrayList<Schedule> getAllSchedulesFromCourses(ArrayList<Course> coursesTaken){
+		ArrayList<Schedule> finalArray = new ArrayList<Schedule>();
+		ArrayList<ArrayList<Section>> sectionCombos = generateSectionListsFromCourses(coursesTaken);
+
+
+		for (ArrayList<Section> sectionCombo : sectionCombos){
+			ArrayList<String> crnList = new ArrayList<String>();
+			boolean conflict = false;
+			ArrayList<Meeting> meetingList = new ArrayList<Meeting>();
+
+			loop:
+			for (Section section : sectionCombo){
+				crnList.add(section.CRN);
+				meetingList.addAll(section.meetingsInSection);
+
+				for (int i = meetingList.size()-1;i>meetingList.size()-section.meetingsInSection.size()-1;i--){
+					for (int j = 0; j < meetingList.size()-section.meetingsInSection.size();j++){
+						if (help.checkConflict(meetingList.get(i), meetingList.get(j))) {
+							conflict = true;
+							break loop;
+						}
+					}
+				}
+
+			}
+
+			if (!conflict){
+				finalArray.add(new Schedule(meetingList, crnList));
+			}
+
+		}
+
+		return finalArray;
+	}
+
+	public ArrayList<Schedule> getAllSchedulesFromCourses2(ArrayList<Course> coursesTaken) {
 
 		ArrayList<ArrayList<Section>> sectionLists = new ArrayList<ArrayList<Section>>();
 		for (Course course : coursesTaken) {
