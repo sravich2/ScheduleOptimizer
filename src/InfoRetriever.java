@@ -51,9 +51,11 @@ public class InfoRetriever {
 
 			for (int i = 0; i < deptList.getLength(); i++) {
 				Node dept = deptList.item(i);
+
 				if (dept.getNodeType() == Node.ELEMENT_NODE) {
 					Element currentDept = (Element) dept;
 					String Dept = currentDept.getAttribute("id");
+					System.out.println(Dept);
 					if (Dept.equals("CS") || Dept.equals("MATH"))
 						getDepartmentCoursesInfo(finalXML, rootElement, Dept,
 						        year, session);
@@ -112,7 +114,7 @@ public class InfoRetriever {
 				if (course.getNodeType() == Node.ELEMENT_NODE) {
 					Element currentCourse = (Element) course;
 					String courseNum = (currentCourse.getAttribute("id"));
-
+					System.out.println(courseNum);
 					getCourseInfo(doc, (Element) deptNode, dept, courseNum,
 					        year, session);
 				}
