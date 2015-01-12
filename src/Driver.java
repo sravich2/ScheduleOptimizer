@@ -25,6 +25,7 @@ public class Driver {
 	public static DocumentBuilder dBuilder = null;
 	public static ArrayList<String> coursesTaken;
 	public static Preferences pref = new Preferences();
+	public static SchedulesBuilder cb3 = new SchedulesBuilder();
 
 	public static void main(String[] args) {
 
@@ -33,9 +34,11 @@ public class Driver {
 		long time = System.currentTimeMillis();
 		Worker help = new Worker();
 		ScheduleScorer scorer = new ScheduleScorer(pref);
-		SchedulesBuilder cb3 = new SchedulesBuilder();
+
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		updateCourseSectionMeetingObjects(coursesTaken, courseList);
+		updateSectionOptionsForCourses(courseList);
+
 		ArrayList<Schedule> allSchedules = cb3.getAllSchedulesFromCourses(courseList);
 		ArrayList<ArrayList<Meeting>> bestSchedule = new ArrayList<ArrayList<Meeting>>();
 		ArrayList<String> scheduleReadable = new ArrayList<String>();
@@ -131,7 +134,25 @@ public class Driver {
 	}
 
 
+	public static void updateSectionOptionsForCourses(ArrayList<Course> coursesTaken){
 
+		for (Course course : coursesTaken){
+			ArrayList<ArrayList<Section>> finalArray = new ArrayList<ArrayList<Section>>();
+			if (course.hasLectureDiscussion){
+				for (Section lecDis : course.partitionedSectionsInCourse.get(course.partitionedSectionsInCourse.size()-1)){
+					finalArray.add(new ArrayList<Section>(Arrays.asList(lecDis)));
+				}
+				course.partitionedSectionsInCourse.remove(course.partitionedSectionsInCourse.size()-1);
+				finalArray.addAll(cb3.generateSectionCombinationsFromPartitions(course.partitionedSectionsInCourse));
+
+			}
+			else{
+				finalArray.addAll(cb3.generateSectionCombinationsFromPartitions(course.partitionedSectionsInCourse));
+
+			}
+			course.sectionOptionsForCourse = finalArray;
+		}
+	}
 
 	public static void updateCourseSectionMeetingObjects(ArrayList<String> coursesTaken, ArrayList<Course> courseList) {
 
