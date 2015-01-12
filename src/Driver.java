@@ -3,12 +3,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -179,7 +177,7 @@ public class Driver {
 
 				}
 
-				Document courseInfo = dBuilder.parse("/Users/Sachin/Documents/GitHub/ScheduleOpt/courseData.xml");
+				Document courseInfo = dBuilder.parse("/Users/Sachin/workspace/Schedule Optimization/courseData.xml");
 				NodeList deptList = courseInfo.getDocumentElement().getElementsByTagName("dept");
 				for (int i = 0; i < deptList.getLength(); i++) {
 					Element courseElement = null;
@@ -211,10 +209,6 @@ public class Driver {
 						for (int k = 0; k < sectionList.getLength(); k++) {
 							Element sectionElement = (Element) sectionList.item(k);
 
-							/*if (sectionStatus.toLowerCase().contains("close") || sectionStatus.toLowerCase().contains("restricted")) {
-
-								continue;
-							}*/
 							String sectionCode = sectionElement.getAttribute("sectionNumber");
 							if (sectionPreference.size() != 0) {
 								for (int l = 0; l < sectionPreference.size(); l++) {
@@ -230,10 +224,15 @@ public class Driver {
 							prunedSectionList.add(new Section(sectionCode, sectionCRN, sectionStatus, sectionCreditHours));
 
 							NodeList meetingList = sectionElement.getElementsByTagName("meeting");
+
 							for (int l = 0; l < meetingList.getLength(); l++) {
 								Element meetingElement = (Element) meetingList.item(l);
 								String type = meetingElement.getAttribute("type");
 
+								if (type.equalsIgnoreCase("online")) {
+									prunedSectionList.remove(prunedSectionList.size() - 1);
+									continue sectionLoop;
+								}
 								if (type.equalsIgnoreCase("lecture-discussion"))
 									courseList.get(courseCount).hasLectureDiscussion = true;
 
