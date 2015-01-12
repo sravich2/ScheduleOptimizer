@@ -7,5 +7,5 @@ Input: User's courses for the next semester and a list of preferences
 Output: List of schedules that best match user's preferences
 
 Known Issues: 
-Courses with optional lecture-discussion sections have the lecture-discussion always added to the schedule.
 Currently works only for CS and MATH courses.
+Restricted classes not restricted
