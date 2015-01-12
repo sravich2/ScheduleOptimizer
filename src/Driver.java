@@ -44,7 +44,6 @@ public class Driver {
 		int countOfBestSchedule = 0;
 		int countOfExecutions = 0;
 
-
 		while (allSchedules != null && countOfExecutions < allSchedules.size()) {
 			Schedule scheduleForSemester = allSchedules.get(countOfExecutions);
 			scheduleForSemester.twoDimensionalSchedule = help.convertModuleArrayToSchedule(scheduleForSemester.mainSchedule);
@@ -132,6 +131,8 @@ public class Driver {
 	}
 
 
+
+
 	public static void updateCourseSectionMeetingObjects(ArrayList<String> coursesTaken, ArrayList<Course> courseList) {
 
 		try {
@@ -169,7 +170,7 @@ public class Driver {
 								String courseName = courseElement.getAttribute("name");
 								String courseCode = courseElement.getAttribute("id");
 								String courseCreditHours = courseElement.getElementsByTagName("creditHours").item(0).getTextContent();
-								courseList.add(new Course(courseName, courseCreditHours, courseCode, 0));
+								courseList.add(new Course(courseName, courseCreditHours, courseCode, 0, false));
 								break;
 							}
 							if (j == tempCourseList.getLength() - 1) {
@@ -211,6 +212,10 @@ public class Driver {
 							for (int l = 0; l < meetingList.getLength(); l++) {
 								Element meetingElement = (Element) meetingList.item(l);
 								String type = meetingElement.getAttribute("type");
+
+								if (type.equalsIgnoreCase("lecture-discussion"))
+									courseList.get(courseCount).hasLectureDiscussion = true;
+
 								String days = meetingElement.getElementsByTagName("daysOfTheWeek").item(0).getTextContent();
 								String startTime = meetingElement.getElementsByTagName("startTime").item(0).getTextContent();
 								String endTime = meetingElement.getElementsByTagName("endTime").item(0).getTextContent();

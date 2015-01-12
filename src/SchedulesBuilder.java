@@ -1,5 +1,7 @@
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SchedulesBuilder {
 
@@ -75,6 +77,36 @@ public class SchedulesBuilder {
 			return finalArray;
 		}
 		
+	}
+
+	public ArrayList<ArrayList<Section>> generateSectionCombinationsFromPartitions(ArrayList<ArrayList<Section>> sections){
+		ArrayList<ArrayList<Section>> finalArray = new ArrayList<ArrayList<Section>>();
+		if (sections.size() == 0) return null;
+		if (sections.size() == 1){
+			for (int i = 0; i < sections.get(0).size(); i++) {
+				finalArray.add(new ArrayList<Section>(Arrays.asList(sections.get(0).get(i))));
+			}
+			return finalArray;
+		}
+		else{
+			ArrayList<ArrayList<Section>> copyOfSections = new ArrayList<ArrayList<Section>>(sections);
+			copyOfSections.remove(0);
+
+			ArrayList<ArrayList<Section>> incompleteCombinations = generateSectionCombinationsFromPartitions(copyOfSections);
+
+			for (int i = 0; i < sections.get(0).size(); i++) {
+
+				Section currentSection = sections.get(0).get(i);
+
+				for (ArrayList<Section> incompleteCombination: incompleteCombinations) {
+
+					ArrayList<Section> currentCombination = new ArrayList<Section>(incompleteCombination);
+					currentCombination.add(currentSection);
+					finalArray.add(currentCombination);
+				}
+			}
+			return finalArray;
+		}
 	}
 
 }
