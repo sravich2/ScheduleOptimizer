@@ -29,11 +29,19 @@ import org.xml.sax.SAXException;
 //http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
 public class InfoRetriever {
 
-	StringBuffer baseUrl = new StringBuffer("http://courses.illinois.edu/cisapp/explorer/schedule/");
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	DocumentBuilder dBuilder;
+	static final StringBuffer baseUrl = new StringBuffer("http://courses.illinois.edu/cisapp/explorer/schedule/");
+	static DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	static DocumentBuilder dBuilder;
 
-	public void getSessionCoursesInfo(String session, String year)
+	public static void main(String[] args) throws IOException {
+		final String semester = "spring";
+		final String year = "2015";
+		long time = System.currentTimeMillis();
+		getSessionCoursesInfo(semester, year);
+		System.out.println(System.currentTimeMillis()-time);
+	}
+
+	public static void getSessionCoursesInfo(String session, String year)
 	{
 
 		StringBuilder sessionUrl = new StringBuilder(baseUrl);
@@ -56,7 +64,7 @@ public class InfoRetriever {
 					Element currentDept = (Element) dept;
 					String Dept = currentDept.getAttribute("id");
 					System.out.println(Dept);
-					if (Dept.equals("CS") || Dept.equals("MATH"))
+					if (Dept.equals("AAS"))
 						getDepartmentCoursesInfo(finalXML, rootElement, Dept,
 						        year, session);
 				}
@@ -72,8 +80,8 @@ public class InfoRetriever {
 
            DOMSource source = new DOMSource(finalXML);
 
-           StreamResult console = new StreamResult(System.out);
-           StreamResult file = new StreamResult(new File("/Users/Sachin/Documents/GitHub/ScheduleOpt/courseData.xml"));
+//         StreamResult console = new StreamResult(System.out);
+           StreamResult file = new StreamResult(new File("/Users/Sachin/workspace/Schedule Optimization/courseData2.xml"));
            //transformer.transform(source, console);
            transformer.transform(source, file);
            System.out.println("DONE");	
@@ -93,7 +101,7 @@ public class InfoRetriever {
 		}
 	}
 
-	public void getDepartmentCoursesInfo(Document doc, Element root, String dept, String year,
+	public static void getDepartmentCoursesInfo(Document doc, Element root, String dept, String year,
 			String session)
 	{
 		StringBuilder deptUrl = new StringBuilder(baseUrl);
@@ -105,7 +113,7 @@ public class InfoRetriever {
 			Document deptInfo = dBuilder.parse(deptUrl.toString());
 			
 			String deptName = deptInfo.getElementsByTagName("unitName").item(0).getTextContent();
-			Node deptNode = root.appendChild(this.createDept(doc, dept, deptName));
+			Node deptNode = root.appendChild(createDept(doc, dept, deptName));
 			
 			NodeList coursesOffered = deptInfo.getElementsByTagName("course");
 
@@ -133,7 +141,7 @@ public class InfoRetriever {
 
 	}
 
-	public void getCourseInfo(Document doc, Element deptNode, String dept, String courseNum,
+	public static void getCourseInfo(Document doc, Element deptNode, String dept, String courseNum,
 			String year, String session)
 	{
 		
@@ -166,7 +174,7 @@ public class InfoRetriever {
 			
 			String courseName = courseInfo.getElementsByTagName("label").item(0).getTextContent();
 			
-			courseNode = deptNode.appendChild(this.createCourse(doc, courseNum, courseName,
+			courseNode = deptNode.appendChild(createCourse(doc, courseNum, courseName,
 					creditHours));
 			
 			NodeList sectionList = courseInfo.getElementsByTagName("section");
@@ -202,7 +210,7 @@ public class InfoRetriever {
 				String endDate = "";
 				String name = "";
 				String status = "";
-				String sectionCreditHours = "";
+				String sectionCreditHours;
 
 				NodeList statusNL;
 				NodeList nameNL;
@@ -225,7 +233,7 @@ public class InfoRetriever {
 					sectionCreditHours = creditHours;
 
 				assert courseNode != null;
-				Node sectionNode = courseNode.appendChild(this.createSection(doc, name, CRN, status,
+				Node sectionNode = courseNode.appendChild(createSection(doc, name, CRN, status,
 						sectionCreditHours));
 
 				NodeList meetingList = currentSectionInfo.getElementsByTagName("meeting");
@@ -260,7 +268,7 @@ public class InfoRetriever {
 					if ((instructorNL = current.getElementsByTagName("instructor")).getLength() != 0)
 						instructor = instructorNL.item(0).getTextContent();
 
-					sectionNode.appendChild(this.createMeeting(doc, type, daysOfTheWeek, startDate, endDate,
+					sectionNode.appendChild(createMeeting(doc, type, daysOfTheWeek, startDate, endDate,
 							startTime, endTime, instructor, building));
 				}
 			} catch (SAXException saxe) {
@@ -271,7 +279,7 @@ public class InfoRetriever {
 		}
 	}
 
-	private Node createCourse(Document doc, String code, String name,
+	private static Node createCourse(Document doc, String code, String name,
 	        String creditHours) {
 		Element course = doc.createElement("course");
 
@@ -279,12 +287,12 @@ public class InfoRetriever {
 		course.setIdAttribute("id", true);
 		course.setAttribute("name", name);
 
-		course.appendChild(createElement(doc, course, "creditHours", creditHours));
+		course.appendChild(createElement(doc, "creditHours", creditHours));
 		
 		return course;
 	}
 	
-	private Node createDept(Document doc, String abbr, String name)
+	private static Node createDept(Document doc, String abbr, String name)
 	{
 		Element dept = doc.createElement("dept");
 
@@ -296,7 +304,7 @@ public class InfoRetriever {
 	}
 	
 
-	private Node createSection(Document doc, String name, String CRN, String status, String creditHours)
+	private static Node createSection(Document doc, String name, String CRN, String status, String creditHours)
 	{
 		Element section = doc.createElement("section");
 
@@ -305,32 +313,32 @@ public class InfoRetriever {
 		section.setAttribute("sectionNumber", name);
 		section.setAttribute("status", status);
 		
-		section.appendChild(createElement(doc, section, "creditHours", creditHours));		
+		section.appendChild(createElement(doc, "creditHours", creditHours));
 
 		return section;
 	}
 	
-	private Node createMeeting(Document doc, String type, String daysOfTheWeek, String startDate, String endDate, 
+	private static Node createMeeting(Document doc, String type, String daysOfTheWeek, String startDate, String endDate,
 			String startTime, String endTime, String instructor, String building)
 	{
 		Element meeting = doc.createElement("meeting");
 		
 		meeting.setAttribute("type", type);
 		
-		meeting.appendChild(createElement(doc, meeting, "daysOfTheWeek", daysOfTheWeek));
-		meeting.appendChild(createElement(doc, meeting, "startDate", startDate));
-		meeting.appendChild(createElement(doc, meeting, "endDate", endDate));
-		meeting.appendChild(createElement(doc, meeting, "startTime", startTime));
-		meeting.appendChild(createElement(doc, meeting, "endTime", endTime));
-		meeting.appendChild(createElement(doc, meeting, "instructor", instructor));
-		meeting.appendChild(createElement(doc, meeting, "building", building));
+		meeting.appendChild(createElement(doc, "daysOfTheWeek", daysOfTheWeek));
+		meeting.appendChild(createElement(doc, "startDate", startDate));
+		meeting.appendChild(createElement(doc, "endDate", endDate));
+		meeting.appendChild(createElement(doc, "startTime", startTime));
+		meeting.appendChild(createElement(doc, "endTime", endTime));
+		meeting.appendChild(createElement(doc, "instructor", instructor));
+		meeting.appendChild(createElement(doc, "building", building));
 		
 		return meeting;
 	}
 	
 
 	//utility method to create text node
-	private static Node createElement(Document doc, Element element, String name, String value)
+	private static Node createElement(Document doc, String name, String value)
 	{
 		Element node = doc.createElement(name);
 		

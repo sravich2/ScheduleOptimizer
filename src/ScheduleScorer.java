@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class ScheduleScorer {
 
-	Worker help = new Worker();
+	final Worker help = new Worker();
 	public Preferences pref;
 	public StringBuilder log = new StringBuilder();
 
@@ -15,10 +15,10 @@ public class ScheduleScorer {
 
 	/**
 	 * Scores a given schedule according to arbitrary set of rules, detailed in documentation
-	 * Input taken as ArrayList<ArrayList<Module>>. See next line.
-	 * Use convertModuleArrayToSchedule method in Worker class to convert ArrayList<Module> to ArrayList<ArrayList<Module>>
+	 * Input taken as ArrayList<ArrayList<Meeting>>. See next line.
+	 * Use convertMeetingArrayToSchedule method in Worker class to convert ArrayList<Meeting> to ArrayList<ArrayList<Meeting>>
 	 *
-	 * @param schedule ArrayList<ArrayList<Module>> which represents prospective schedule
+	 * @param schedule ArrayList<ArrayList<Meeting>> which represents prospective schedule
 	 * @return Score for given prospective schedule. Higher is better.
 	 */
 	public double scoreSchedule(ArrayList<ArrayList<Meeting>> schedule, ArrayList<String> crnList) {
@@ -74,7 +74,6 @@ public class ScheduleScorer {
 					score -= longBreaks * 5;
 					log.append(longBreaks).append(" long ").append((longBreaks == 1) ? "break " : "breaks").append(" on ").append(days[i]).append("\n");
 				}
-
 			}
 
 
@@ -117,7 +116,7 @@ public class ScheduleScorer {
 				for (int j = 0; j < schedule.get(i).size(); j++) {
 					if (pref.preferredInstructors.contains(schedule.get(i).get(j).instructor.split(",")[0]) && schedule.get(i).get(j).type.contains("ecture")) {
 						score += 30;
-						log.append(schedule.get(i).get(j).instructor + " is an instructor in this schedule\n");
+						log.append(schedule.get(i).get(j).instructor).append(" is an instructor in this schedule\n");
 
 						pref.preferredInstructors.remove(pref.preferredInstructors.indexOf(schedule.get(i).get(j).instructor.split(",")[0]));
 					}
@@ -146,7 +145,7 @@ public class ScheduleScorer {
 	/**
 	 * Calculates the number of minutes in class on a given day
 	 *
-	 * @param scheduleForOneDay ArrayList<Module> containing all classes on a single day
+	 * @param scheduleForOneDay ArrayList<Meeting> containing all classes on a single day
 	 * @return Number of minutes in class during the given day
 	 */
 	public int minutesInDay(ArrayList<Meeting> scheduleForOneDay) {
@@ -182,7 +181,7 @@ public class ScheduleScorer {
 	/**
 	 * Checks whether there is a lunch break on the given day
 	 *
-	 * @param scheduleForOneDay ArrayList<Module> containing all classes on a single day
+	 * @param scheduleForOneDay ArrayList<Meeting> containing all classes on a single day
 	 * @return boolean represents whether there is a break for lunch on the given day
 	 */
 	public boolean checkLunchBreak(ArrayList<Meeting> scheduleForOneDay) {
@@ -201,30 +200,30 @@ public class ScheduleScorer {
 	/**
 	 * Calculates the number of classes during disfavored time of day on the given day
 	 *
-	 * @param scheduleOnDay ArrayList<Module> containing all classes on a single day
+	 * @param scheduleOnDay ArrayList<Meeting> containing all classes on a single day
 	 * @return Number of classes during disfavored time of day on the given day
 	 */
 	public int classesAtTimeOfDay(ArrayList<Meeting> scheduleOnDay) //Returns number of bad classes
 	{
 		int countOfClassesInUndesirableTime = 0;
-		Meeting checkAgainstThisModule;
+		Meeting checkAgainstThisMeeting;
 		switch (pref.avoidTime) {
 			default:
 				return 0;
 			case 1:
-				checkAgainstThisModule = new Meeting("MTWRF", "08:00 AM", "10:59 AM");
+				checkAgainstThisMeeting = new Meeting("MTWRF", "08:00 AM", "10:59 AM");
 				break;
 			case 2:
-				checkAgainstThisModule = new Meeting("MTWRF", "11:00 AM", "03:59 PM");
+				checkAgainstThisMeeting = new Meeting("MTWRF", "11:00 AM", "03:59 PM");
 				break;
 			case 3:
-				checkAgainstThisModule = new Meeting("MTWRF", "04:00 AM", "10:00 PM");
+				checkAgainstThisMeeting = new Meeting("MTWRF", "04:00 AM", "10:00 PM");
 				break;
 		}
 
 		for (Meeting aScheduleOnDay : scheduleOnDay) {
 
-			if (help.checkConflict(checkAgainstThisModule, aScheduleOnDay)) {
+			if (help.checkConflict(checkAgainstThisMeeting, aScheduleOnDay)) {
 				countOfClassesInUndesirableTime++;
 			}
 		}
@@ -270,8 +269,10 @@ public class ScheduleScorer {
 		countBreaks[1] = countLongBreaks;
 		return countBreaks;
 	}
-	
-	public int[] countUnwalkableClasses(ArrayList<Meeting> scheduleForOneDay) //Optimise this method
+
+
+	//OPTIMISE THIS METHOD
+	public int[] countUnwalkableClasses(ArrayList<Meeting> scheduleForOneDay)
 	{
 		DistanceTimeMatrix matrix = new DistanceTimeMatrix();
 		double[] travelInfo = new double[2];

@@ -3,12 +3,11 @@ import java.util.Arrays;
 
 public class SchedulesBuilder {
 
-	Worker help = new Worker();
+	final Worker help = new Worker();
 
 	public ArrayList<Schedule> getAllSchedulesFromCourses(ArrayList<Course> coursesTaken){
 		ArrayList<Schedule> finalArray = new ArrayList<Schedule>();
 		ArrayList<ArrayList<Section>> sectionCombos = generateSectionListsFromCourses(coursesTaken);
-
 
 		for (ArrayList<Section> sectionCombo : sectionCombos){
 

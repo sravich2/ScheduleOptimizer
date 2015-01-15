@@ -85,26 +85,6 @@ public class Worker {
 		return false;
 	}
 
-	/**
-	 * Choose random Modules for given Course NOTE: Needs optimization and
-	 * efficiency boosts
-	 * 
-	 * @param inputCourse
-	 *            Course for which modules are to be chosen
-	 * @return Module[] containing random selection of Modules for given Course
-	 */
-	public ArrayList<Meeting> chooseRandomModules(Course inputCourse) {
-		Random rand = new Random();
-		// Module[] finalCourses = new
-		// Module[inputCourse.modulesAvailable.length];
-		ArrayList<Meeting> finalCourses = new ArrayList<Meeting>(
-		        inputCourse.modulesAvailable.length);
-		for (int i = 0; i < inputCourse.modulesAvailable.length; i++)
-			finalCourses.add(inputCourse.modulesAvailable[i][(int) (rand.nextDouble() * this
-			        .realLength(inputCourse.modulesAvailable[i]))]);
-		return finalCourses;
-	}
-
 
 	/**
 	 * Prints out time table representation of schedule
@@ -140,20 +120,6 @@ public class Worker {
 	}
 
 	/**
-	 * Calculates number of non-null references in Module[]
-	 *
-	 * @param input
-	 *            Module[] whose length is to be found
-	 * @return number of non-null references in Module[] input
-	 */
-	public int realLength(Meeting[] input) {
-		int i = 0;
-		while (input[i] != null)
-			i++;
-		return i;
-	}
-
-	/**
 	 * Converts Module[] containing list of Modules to Module[][] containing
 	 * day-wise references to Modules First dimension ranges from 0 to 4,
 	 * represents days of the working week
@@ -185,77 +151,12 @@ public class Worker {
 		return schedule;
 	}
 
-	/**
-	 * Removes elements of Module[] at given index and the index following it
-	 *
-	 * @param inputArray
-	 *            Module[] from which elements are to be removed
-	 * @param k
-	 *            Index of first removal
-	 * @return Module[] with elements at k and k+1 removed
-	 */
-	public int[] removeFromArray(int[] inputArray, int k) // Removes elements at
-														  // k and k + 1
-	{
-		int[] newArray = new int[inputArray.length - 2];
-		System.arraycopy(inputArray, 0, newArray, 0, k);
-		System.arraycopy(inputArray, k + 2, newArray, k, newArray.length - k);
-		return newArray;
-	}
-
-	/**
-	 * Compares two Module[] (compares contents, not memory locations)
-	 * 
-	 * @param module1
-	 * @param module2
-	 * @return boolean representing whether module1 and module2 are equal
-	 */
-	public boolean compareModuleArrays(Meeting[] module1, Meeting[] module2) {
-		if (module1.length != module2.length)
-			return false;
-
-		for (int i = 0; i < module1.length; i++) {
-			if (!module1[i].equals(module2[i])) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-
 	public ArrayList<Meeting> deepCopyMeetingAL(ArrayList<Meeting> inputAL){
 		ArrayList<Meeting> newAL = new ArrayList<Meeting>();
 		for (Meeting aMeeting : inputAL){
 			newAL.add(aMeeting.clone());
 		}
 		return newAL;
-	}
-
-	/**
-	 * Creates a deep copy of Module
-	 * 
-	 * @param inputModule
-	 *            Module whose deep copy is needed
-	 * @return Module which is a deep copy of inputModule
-	 */
-	public Meeting deepCopyModule(Meeting inputModule) {
-		return new Meeting(String.valueOf(inputModule.daysOfTheWeek),
-		        inputModule.startTime, inputModule.endTime, inputModule.building);
-	}
-
-	/**
-	 * Creates a deep copy of Module[]
-	 * 
-	 * @param inputArray
-	 *            Module[] whose deep copy is needed
-	 * @return Module[] which is a deep copy of inputArray
-	 */
-	public Meeting[] deepCopyModuleArray(Meeting[] inputArray) {
-		Meeting[] outputArray = new Meeting[inputArray.length];
-		for (int i = 0; i < outputArray.length; i++) {
-			outputArray[i] = this.deepCopyModule(inputArray[i]);
-		}
-		return outputArray;
 	}
 
 	/**
@@ -288,8 +189,8 @@ public class Worker {
 		ArrayList<Meeting> finalSchedule = new ArrayList<Meeting>();
 
 		ArrayList<Meeting> scheduleForOneDay2 = new ArrayList<Meeting>();
-		for (int i = 0; i < scheduleForOneDay.size();i++){
-			scheduleForOneDay2.add(scheduleForOneDay.get(i).clone());
+		for (Meeting meeting : scheduleForOneDay) {
+			scheduleForOneDay2.add(meeting.clone());
 		}
 
 		int nextIndex;

@@ -12,17 +12,17 @@ import org.w3c.dom.Document;
 public class Meeting {
 	
 	
-	public Worker help = new Worker();
+	public final Worker help = new Worker();
 	public Section inSection;
 	public String type;
-	public char[] daysOfTheWeek;
+	public final char[] daysOfTheWeek;
 	public String building; //Pull from CSV file.
 	public String instructor; //Check from CSV as and when needed
 	public String startDate;
 	public String endDate;
 	public int startTime;
 	public int endTime;
-	public int duration;
+	public final int duration;
 
 	public Meeting clone() {
 		return new Meeting(this.inSection, this.type, String.valueOf(this.daysOfTheWeek), this.startTime, this.endTime, this.building, this.instructor, this.startDate, this.endDate);
@@ -39,6 +39,8 @@ public class Meeting {
 		this.duration = this.endTime-this.startTime;
 		this.building = building;
 		this.instructor = instructor;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 
 	public Meeting(Section inSection, String type, String days, int startTime, int endTime, String building, String instructor, String startDate, String endDate){
@@ -51,6 +53,9 @@ public class Meeting {
 		this.duration = this.endTime-this.startTime;
 		this.building = building;
 		this.instructor = instructor;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.inSection = inSection;
 	}
 
 	public Meeting(String days, String startTime, String endTime, String location)

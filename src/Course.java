@@ -9,21 +9,20 @@ import java.util.ArrayList;
  */
 public class Course {
 
-	public String courseName;
-	public int creditHours;
-	public String courseCode;
-	public ArrayList<ArrayList<Section>> partitionedSectionsInCourse;
-	public Meeting[][] modulesAvailable;
-	public ArrayList<ArrayList<Section>> sectionOptionsForCourse;
+	public final String courseName;
+	public final int creditHours;
+	public final String courseCode;
 	public boolean hasLectureDiscussion;
+	public ArrayList<ArrayList<Section>> partitionedSectionsInCourse;
+	public ArrayList<ArrayList<Section>> sectionOptionsForCourse;
 
-	public Course(String name, String hours, String code, int numberOfModules, boolean hasLD) {
-		modulesAvailable = new Meeting[numberOfModules][30];
+	public Course(String name, String hours, String code) {
+
 		partitionedSectionsInCourse = new ArrayList<ArrayList<Section>>();
 		courseName = name;
 		courseCode = code;
 		creditHours = (int) hours.charAt(0);
-		hasLectureDiscussion = hasLD;
+		hasLectureDiscussion = false;
 	}
 
 	public String toString() {

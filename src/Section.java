@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class Section {
 
-	String sectionCode;
-	String CRN;
-	String status;
-	String creditHours;
-	ArrayList<Meeting> meetingsInSection;
+	final String sectionCode;
+	final String CRN;
+	final String status;
+	final String creditHours;
+	final ArrayList<Meeting> meetingsInSection;
 	
 	public Section(String code, String crn, String status, String hours){
 		sectionCode = code;
@@ -16,8 +16,6 @@ public class Section {
 		creditHours = hours;
 		meetingsInSection = new ArrayList<Meeting>();	
 	}
-
-
 
 	public String toString(){
 		

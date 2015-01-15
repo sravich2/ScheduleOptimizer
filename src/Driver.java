@@ -19,11 +19,11 @@ import java.util.regex.Pattern;
  */
 public class Driver {
 
-	public static DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	public static final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	public static DocumentBuilder dBuilder = null;
 	public static ArrayList<String> coursesTaken;
 	public static Preferences pref = new Preferences();
-	public static SchedulesBuilder cb3 = new SchedulesBuilder();
+	public static final SchedulesBuilder scheduleBuilder = new SchedulesBuilder();
 
 	public static void main(String[] args) {
 
@@ -37,7 +37,7 @@ public class Driver {
 		updateCourseSectionMeetingObjects(coursesTaken, courseList);
 		updateSectionOptionsForCourses(courseList);
 
-		ArrayList<Schedule> allSchedules = cb3.getAllSchedulesFromCourses(courseList);
+		ArrayList<Schedule> allSchedules = scheduleBuilder.getAllSchedulesFromCourses(courseList);
 		ArrayList<ArrayList<Meeting>> bestSchedule = new ArrayList<ArrayList<Meeting>>();
 		ArrayList<String> scheduleReadable = new ArrayList<String>();
 		ArrayList<StringBuilder> bestLog = new ArrayList<StringBuilder>();
@@ -62,8 +62,7 @@ public class Driver {
 				bestScore = currentScore;
 				countOfBestSchedule++;
 
-			}
-			else if (currentScore == bestScore) {
+			} else if (currentScore == bestScore) {
 
 				bestLog.add(new StringBuilder(scorer.log));
 				bestSchedule.add(help.deepCopyMeetingAL(scheduleForSemester.mainSchedule));
@@ -132,21 +131,19 @@ public class Driver {
 	}
 
 
-	public static void updateSectionOptionsForCourses(ArrayList<Course> coursesTaken){
+	public static void updateSectionOptionsForCourses(ArrayList<Course> coursesTaken) {
 
-		for (Course course : coursesTaken){
+		for (Course course : coursesTaken) {
 			ArrayList<ArrayList<Section>> finalArray = new ArrayList<ArrayList<Section>>();
-			if (course.hasLectureDiscussion){
-				for (Section lecDis : course.partitionedSectionsInCourse.get(course.partitionedSectionsInCourse.size()-1)){
+			if (course.hasLectureDiscussion) {
+				for (Section lecDis : course.partitionedSectionsInCourse.get(course.partitionedSectionsInCourse.size() - 1)) {
 					finalArray.add(new ArrayList<Section>(Arrays.asList(lecDis)));
 				}
-				course.partitionedSectionsInCourse.remove(course.partitionedSectionsInCourse.size()-1);
-				finalArray.addAll(cb3.generateSectionCombinationsFromPartitions(course.partitionedSectionsInCourse));
+				course.partitionedSectionsInCourse.remove(course.partitionedSectionsInCourse.size() - 1);
+				finalArray.addAll(scheduleBuilder.generateSectionCombinationsFromPartitions(course.partitionedSectionsInCourse));
 
-			}
-			else{
-				finalArray.addAll(cb3.generateSectionCombinationsFromPartitions(course.partitionedSectionsInCourse));
-
+			} else {
+				finalArray.addAll(scheduleBuilder.generateSectionCombinationsFromPartitions(course.partitionedSectionsInCourse));
 			}
 			course.sectionOptionsForCourse = finalArray;
 		}
@@ -189,7 +186,7 @@ public class Driver {
 								String courseName = courseElement.getAttribute("name");
 								String courseCode = courseElement.getAttribute("id");
 								String courseCreditHours = courseElement.getElementsByTagName("creditHours").item(0).getTextContent();
-								courseList.add(new Course(courseName, courseCreditHours, courseCode, 0, false));
+								courseList.add(new Course(courseName, courseCreditHours, courseCode));
 								break;
 							}
 							if (j == tempCourseList.getLength() - 1) {
@@ -212,7 +209,7 @@ public class Driver {
 							String sectionCode = sectionElement.getAttribute("sectionNumber");
 							if (sectionPreference.size() != 0) {
 								for (int l = 0; l < sectionPreference.size(); l++) {
-									if (sectionCode.substring(0,1).equals(sectionPreference.get(l).toUpperCase())) break;
+									if (sectionCode.substring(0, 1).equals(sectionPreference.get(l).toUpperCase())) break;
 									if (i == sectionPreference.size() - 1) continue sectionLoop;
 								}
 							}
@@ -233,8 +230,7 @@ public class Driver {
 									prunedSectionList.remove(prunedSectionList.size() - 1);
 									continue sectionLoop;
 								}
-								if (type.equalsIgnoreCase("lecture-discussion"))
-									courseList.get(courseCount).hasLectureDiscussion = true;
+								if (type.equalsIgnoreCase("lecture-discussion")) courseList.get(courseCount).hasLectureDiscussion = true;
 
 								String days = meetingElement.getElementsByTagName("daysOfTheWeek").item(0).getTextContent();
 								String startTime = meetingElement.getElementsByTagName("startTime").item(0).getTextContent();
@@ -269,7 +265,8 @@ public class Driver {
 	public static void getUserInput() {
 
 		Scanner in = new Scanner(System.in);
-		System.out.println("Enter the courses you wish to take in Spring 2015, separated by commas.\nIf you're taking any honors or Special Topics course, add \":<section>\" to the end of the course code");
+		System.out.println("Enter the courses you wish to take in Spring 2015, separated by commas.\nIf you're taking any honors or Special Topics course, add \":<section>\" to the end of the course" +
+				" code");
 		String input = in.nextLine();
 		coursesTaken = new ArrayList<String>(Arrays.asList(input.split("\\s*,\\s*")));
 
