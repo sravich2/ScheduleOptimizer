@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -15,6 +16,7 @@ public class sandbox
 	 */
 	public static void main(String[] args)
 	{
+		/*
 		DistanceTimeMatrix help = new DistanceTimeMatrix();
 		try {
 			Scanner in = new Scanner(new File("Buildings and Addresses.csv"));
@@ -45,7 +47,7 @@ public class sandbox
 			{
 				if (i != j)
 				{
-					double[] distanceTimeMatrix = help.getTravelTimeAndDistance(buildingsAndAddresses.get(i)[1], buildingsAndAddresses.get(j)[1]);
+					double[] distanceTimeMatrix = DistanceTimeMatrix.getTravelTimeAndDistance(buildingsAndAddresses.get(i)[1], buildingsAndAddresses.get(j)[1]);
 					System.out.println(buildingsAndAddresses.get(i)[0] + ",");
 					System.out.println(buildingsAndAddresses.get(j)[0] + ",");
 					System.out.println(distanceTimeMatrix[0] + ","); //miles
@@ -56,6 +58,16 @@ public class sandbox
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	*/
+	ArrayList<Integer> arr = new ArrayList<Integer>();
+		arr.add(2);
+		arr.add(10);
+		arr.add(5);
+		arr.add(1);
+
+		System.out.println(arr);
+		Collections.sort(arr);
+		System.out.println(arr);
 	}
 
 }

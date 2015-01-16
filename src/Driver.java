@@ -57,7 +57,7 @@ public class Driver {
 				countOfBestSchedule = 0;
 
 				bestLog.add(new StringBuilder(scorer.log));
-				bestSchedule.add(help.deepCopyMeetingAL(scheduleForSemester.mainSchedule));
+				bestSchedule.add(new ArrayList<Meeting>(scheduleForSemester.mainSchedule));
 				scheduleReadable.add(help.toString(scheduleForSemester.twoDimensionalSchedule));
 				bestScore = currentScore;
 				countOfBestSchedule++;
@@ -65,7 +65,7 @@ public class Driver {
 			} else if (currentScore == bestScore) {
 
 				bestLog.add(new StringBuilder(scorer.log));
-				bestSchedule.add(help.deepCopyMeetingAL(scheduleForSemester.mainSchedule));
+				bestSchedule.add(new ArrayList<Meeting>(scheduleForSemester.mainSchedule));
 				scheduleReadable.add(help.toString(scheduleForSemester.twoDimensionalSchedule));
 				countOfBestSchedule++;
 			}
@@ -133,6 +133,7 @@ public class Driver {
 
 	public static void updateSectionOptionsForCourses(ArrayList<Course> coursesTaken) {
 
+		long time = System.currentTimeMillis();
 		for (Course course : coursesTaken) {
 			ArrayList<ArrayList<Section>> finalArray = new ArrayList<ArrayList<Section>>();
 			if (course.hasLectureDiscussion) {

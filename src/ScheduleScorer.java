@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class ScheduleScorer {
 
 	final Worker help = new Worker();
 	public Preferences pref;
 	public StringBuilder log = new StringBuilder();
-
 	public ArrayList<Integer> notableTimes = new ArrayList<Integer>();
-
 	public ScheduleScorer(Preferences pref) {
 		this.pref = pref;
 	}
@@ -39,7 +38,7 @@ public class ScheduleScorer {
 				break;
 			default:
 		}
-		 log.append("Schedule Report:\n");
+		log.append("Schedule Report:\n");
 		log.append("CRN List: ").append(crnList).append("\n");
 
 		for (int i = 0; i < 5; i++) {
@@ -76,7 +75,6 @@ public class ScheduleScorer {
 				}
 			}
 
-
 			//4. Calculating Maximum Minutes in a Row
 			int maxMinsInRow = this.maxMinutesInRow();
 			if (maxMinsInRow > pref.maxMinutesInARow) {
@@ -84,7 +82,7 @@ public class ScheduleScorer {
 				log.append(maxMinsInRow).append(" minutes in a row on ").append(days[i]).append("\n");
 			}
 			
-			//5. Calculating Minutes in class each day
+			//5. Calculating Minutes in class
 			int maxMinsInDay = this.minutesInDay(schedule.get(i));
 			if (maxMinsInDay > pref.maxMinutesInADay) {
 				score -= (maxMinsInDay - pref.maxMinutesInADay) / 10;
@@ -115,9 +113,8 @@ public class ScheduleScorer {
 			if (pref.preferredInstructors != null && pref.preferredInstructors.size() > 0) {
 				for (int j = 0; j < schedule.get(i).size(); j++) {
 					if (pref.preferredInstructors.contains(schedule.get(i).get(j).instructor.split(",")[0]) && schedule.get(i).get(j).type.contains("ecture")) {
-						score += 30;
+						score += 50;
 						log.append(schedule.get(i).get(j).instructor).append(" is an instructor in this schedule\n");
-
 						pref.preferredInstructors.remove(pref.preferredInstructors.indexOf(schedule.get(i).get(j).instructor.split(",")[0]));
 					}
 				}
@@ -150,8 +147,8 @@ public class ScheduleScorer {
 	 */
 	public int minutesInDay(ArrayList<Meeting> scheduleForOneDay) {
 		int minutesBusyInDay = 0;
-		for (Meeting aScheduleForOneDay : scheduleForOneDay) {
-			minutesBusyInDay += aScheduleForOneDay.duration;
+		for (Meeting meeting : scheduleForOneDay) {
+			minutesBusyInDay += meeting.duration;
 		}
 		return minutesBusyInDay;
 	}
@@ -203,8 +200,7 @@ public class ScheduleScorer {
 	 * @param scheduleOnDay ArrayList<Meeting> containing all classes on a single day
 	 * @return Number of classes during disfavored time of day on the given day
 	 */
-	public int classesAtTimeOfDay(ArrayList<Meeting> scheduleOnDay) //Returns number of bad classes
-	{
+	public int classesAtTimeOfDay(ArrayList<Meeting> scheduleOnDay) {
 		int countOfClassesInUndesirableTime = 0;
 		Meeting checkAgainstThisMeeting;
 		switch (pref.avoidTime) {
@@ -221,9 +217,9 @@ public class ScheduleScorer {
 				break;
 		}
 
-		for (Meeting aScheduleOnDay : scheduleOnDay) {
+		for (Meeting meeting : scheduleOnDay) {
 
-			if (help.checkConflict(checkAgainstThisMeeting, aScheduleOnDay)) {
+			if (help.checkConflict(checkAgainstThisMeeting, meeting)) {
 				countOfClassesInUndesirableTime++;
 			}
 		}
@@ -246,23 +242,18 @@ public class ScheduleScorer {
 
 		notableTimes.clear();
 
-		//int[] notableTimes = new int[scheduleForOneDay.size() * 2];
-		for (Meeting aScheduleForOneDay : scheduleForOneDay) {
-			notableTimes.add(aScheduleForOneDay.startTime);
-			notableTimes.add(aScheduleForOneDay.endTime);
-			//notableTimes[count] = aScheduleForOneDay.startTime;
-			//notableTimes[count + 1] = aScheduleForOneDay.endTime;
-			//count += 2;
+		for (Meeting meeting : scheduleForOneDay) {
+			notableTimes.add(meeting.startTime);
+			notableTimes.add(meeting.endTime);
 		}
-		Integer[] notableArray = new Integer[notableTimes.size()];
-		Arrays.sort(notableTimes.toArray(notableArray));
-		notableTimes = new ArrayList<Integer>(Arrays.asList(notableArray));
+
+		Collections.sort(notableTimes);
 
 		for (int i = 0; i < notableTimes.size() / 2 - 1; i++) {
 			breakBetweenClasses = notableTimes.get(2 * (i + 1)) - notableTimes.get(2 * i + 1);
 
 			if (breakBetweenClasses >= 20 && breakBetweenClasses <= 90) countShortBreaks++;
-			if (breakBetweenClasses > 90) countLongBreaks++;
+			else if (breakBetweenClasses > 90) countLongBreaks++;
 		}
 
 		countBreaks[0] = countShortBreaks;
@@ -272,8 +263,7 @@ public class ScheduleScorer {
 
 
 	//OPTIMISE THIS METHOD
-	public int[] countUnwalkableClasses(ArrayList<Meeting> scheduleForOneDay)
-	{
+	public int[] countUnwalkableClasses(ArrayList<Meeting> scheduleForOneDay) {
 		DistanceTimeMatrix matrix = new DistanceTimeMatrix();
 		double[] travelInfo = new double[2];
 		int[] howLateAreYouGoingToBe = new int[10];

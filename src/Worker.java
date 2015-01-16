@@ -19,7 +19,7 @@ public class Worker {
 	 * @return time in decimal format
 	 */
 	public int convertTimeBase60To10(String time) {
-		int timeIn10 = 0;
+		int timeIn10;
 
 			int hourIn60 = Integer.valueOf(time.substring(0, 2));
 			String lastTwoChars = time.substring(time.length()-2);
@@ -30,7 +30,7 @@ public class Worker {
 
 			if (lastTwoChars.equalsIgnoreCase("PM") || lastTwoChars.equalsIgnoreCase("AM"))
 				time = time.substring(0, time.length()-3);
-			int minuteIn60 = 0;
+			int minuteIn60;
 			if (time.contains(":"))
 				minuteIn60 = Integer.valueOf(time.substring(3));
 			else
@@ -120,13 +120,13 @@ public class Worker {
 	}
 
 	/**
-	 * Converts Module[] containing list of Modules to Module[][] containing
+	 * Converts ArrayList<Module> containing list of Modules to Module[][] containing
 	 * day-wise references to Modules First dimension ranges from 0 to 4,
 	 * represents days of the working week
 	 * 
 	 * @param arr
-	 *            Module[] whose day-wise representation is sought
-	 * @return Module[][] containing day-wise representation of Module[] arr
+	 *            ArrayList<Meeting> whose day-wise representation is sought
+	 * @return ArrayList<ArrayList<Meeting>> containing day-wise representation of ArrayList<Meeting> arr
 	 */
 	public ArrayList<ArrayList<Meeting>> convertModuleArrayToSchedule(ArrayList<Meeting> arr) {
 		ArrayList<ArrayList<Meeting>> schedule = new ArrayList<ArrayList<Meeting>>();
@@ -149,14 +149,6 @@ public class Worker {
 		}
 
 		return schedule;
-	}
-
-	public ArrayList<Meeting> deepCopyMeetingAL(ArrayList<Meeting> inputAL){
-		ArrayList<Meeting> newAL = new ArrayList<Meeting>();
-		for (Meeting aMeeting : inputAL){
-			newAL.add(aMeeting.clone());
-		}
-		return newAL;
 	}
 
 	/**
@@ -190,7 +182,7 @@ public class Worker {
 
 		ArrayList<Meeting> scheduleForOneDay2 = new ArrayList<Meeting>();
 		for (Meeting meeting : scheduleForOneDay) {
-			scheduleForOneDay2.add(meeting.clone());
+			scheduleForOneDay2.add(new Meeting(meeting));
 		}
 
 		int nextIndex;

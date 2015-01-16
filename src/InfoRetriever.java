@@ -200,9 +200,9 @@ public class InfoRetriever {
 			System.out.println(saxe.getMessage());
 		}
 
-		for (String aCRNList : CRNList) {
+		for (String CRN : CRNList) {
 			url = new StringBuffer(courseUrl);
-			url.append("/").append(aCRNList).append(".xml");
+			url.append("/").append(CRN).append(".xml");
 			try {
 				Document currentSectionInfo = dBuilder.parse(url.toString());
 
@@ -215,8 +215,6 @@ public class InfoRetriever {
 				NodeList statusNL;
 				NodeList nameNL;
 				NodeList creditHoursNL;
-
-				String CRN = aCRNList;
 
 				if ((currentSectionInfo.getElementsByTagName("startDate")).getLength() != 0)
 					startDate = currentSectionInfo.getElementsByTagName("startDate").item(0).getTextContent();
