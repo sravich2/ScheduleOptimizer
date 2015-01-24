@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,6 +12,7 @@ public class ScheduleScorer {
 	public ScheduleScorer(Preferences pref) {
 		this.pref = pref;
 	}
+
 
 	/**
 	 * Scores a given schedule according to arbitrary set of rules, detailed in documentation
@@ -90,36 +92,37 @@ public class ScheduleScorer {
 			}
 			
 
-			/*
 			//6. Checking for unwalkable classes
-			if (pref.walk){
-			int unwalkableClasses = this.countUnwalkableClasses(schedule.get(i)).length;
-			if ((unwalkableClasses>0))
-			{
-				score -= 50;
-				log.append(unwalkableClasses+ " unwalkable classes " + " on " + days[i] + "\n");
-			}}
-			*/
-			
-			//7. Check for day with minimum classes
-			if (pref.dayWithMinimum <= 2) {
-				if (countClassesOnADay(schedule.get(i)) <= pref.dayWithMinimum) {
-					score += 10 * (3 - pref.dayWithMinimum);
-					log.append(countClassesOnADay(schedule.get(i))).append(" classes on ").append(days[i]).append("\n");
-				}
-			}
-
-			//8. Checking for instructor match
-			if (pref.preferredInstructors != null && pref.preferredInstructors.size() > 0) {
-				for (int j = 0; j < schedule.get(i).size(); j++) {
-					if (pref.preferredInstructors.contains(schedule.get(i).get(j).instructor.split(",")[0]) && schedule.get(i).get(j).type.contains("ecture")) {
-						score += 50;
-						log.append(schedule.get(i).get(j).instructor).append(" is an instructor in this schedule\n");
-						pref.preferredInstructors.remove(pref.preferredInstructors.indexOf(schedule.get(i).get(j).instructor.split(",")[0]));
+			if (pref.walk) {
+				ArrayList<Integer> howLate = countUnwalkableClasses(schedule.get(i));
+				for (int j = 0; j < howLate.size(); j++) {
+					if (howLate.get(j) > 0.0) {
+						score -= 20;
+						log.append("You will be ").append(howLate.get(j)).append(" minutes late to ").append(schedule.get(i).get(j + 1).inSection).append("\n");
 					}
 				}
 			}
-		}
+
+				//7. Check for day with minimum classes
+				if (pref.dayWithMinimum <= 2) {
+					if (countClassesOnADay(schedule.get(i)) <= pref.dayWithMinimum) {
+						score += 10 * (3 - pref.dayWithMinimum);
+						log.append(countClassesOnADay(schedule.get(i))).append(" classes on ").append(days[i]).append("\n");
+					}
+				}
+
+				//8. Checking for instructor match
+				if (pref.preferredInstructors != null && pref.preferredInstructors.size() > 0) {
+					for (int j = 0; j < schedule.get(i).size(); j++) {
+						if (pref.preferredInstructors.contains(schedule.get(i).get(j).instructor.split(",")[0]) && schedule.get(i).get(j).type.contains("ecture")) {
+							score += 50;
+							log.append(schedule.get(i).get(j).instructor).append(" is an instructor in this schedule\n");
+							pref.preferredInstructors.remove(pref.preferredInstructors.indexOf(schedule.get(i).get(j).instructor.split(",")[0]));
+						}
+					}
+				}
+			}
+
 		
 		//9. Checking classes near weekend
 		if (pref.extendWeekend) {
@@ -262,34 +265,36 @@ public class ScheduleScorer {
 	}
 
 
-	//OPTIMISE THIS METHOD
-	public int[] countUnwalkableClasses(ArrayList<Meeting> scheduleForOneDay) {
-		DistanceTimeMatrix matrix = new DistanceTimeMatrix();
-		double[] travelInfo = new double[2];
-		int[] howLateAreYouGoingToBe = new int[10];
-		int count = 0;
-		ArrayList<Meeting> scheduleForOneDay2 = help.sortByTimeScheduleForOneDay(scheduleForOneDay);
 
-		for (int i = 0; i < scheduleForOneDay2.size() - 1; i++) {
-			try {
-				//travelInfo = matrix.getTravelTimeAndDistance("http://www.mapquestapi
-				// .com/directions/v2/route?key=Fmjtd%7Cluurn9u7ng%2Cbx%3Do5-9wznl0&outFormat=json&routeType=pedestrian&enhancedNarrative=true&locale=en_US&from=1304+w+springfield+avenue+urbana&to
-				// =201+n+goodwin+avenue+Urbana");
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
+	public ArrayList<Integer> countUnwalkableClasses(ArrayList<Meeting> scheduleForOneDay) {
+
+		ArrayList<Integer> howLate = new ArrayList<Integer>();
+		ArrayList<Meeting> sortedScheduleForOneDay = help.sortByTimeScheduleForOneDay(scheduleForOneDay);
+
+		for (int i = 0; i < sortedScheduleForOneDay.size() - 1; i++) {
+			int endTimeOfFirst = sortedScheduleForOneDay.get(i).endTime;
+			String buildingOfFirst = sortedScheduleForOneDay.get(i).building;
+			int startTimeOfSecond = sortedScheduleForOneDay.get(i + 1).startTime;
+			String buildingOfSecond = sortedScheduleForOneDay.get(i + 1).building;
+			int timeBetweenClasses = startTimeOfSecond - endTimeOfFirst;
+
+
+			int timeToWalkInMinutes;
+			if (buildingOfFirst.equalsIgnoreCase(buildingOfSecond)) timeToWalkInMinutes = 0;
+			else {
+				timeToWalkInMinutes = Double.valueOf(DistanceRetriever.dm.getInfo(buildingOfFirst, buildingOfSecond)[1]/60).intValue();
 			}
-			
-			if (travelInfo[0] > scheduleForOneDay2.get(i + 1).startTime - scheduleForOneDay2.get(i).endTime) {
-				System.out.print(scheduleForOneDay2.get(i).building + " to ");
-				System.out.println(scheduleForOneDay2.get(i + 1).building + "  " + travelInfo[0] + " > " + scheduleForOneDay2.get(i + 1).startTime + " - " + scheduleForOneDay2.get(i).endTime);
-				howLateAreYouGoingToBe[count] = (int) (travelInfo[0] - (scheduleForOneDay2.get(i + 1).startTime - scheduleForOneDay2.get(i).endTime));
-				count++;
+			if (timeBetweenClasses < timeToWalkInMinutes) {
+				howLate.add(timeToWalkInMinutes - timeBetweenClasses);
 			}
+			else howLate.add(0);
 		}
-		howLateAreYouGoingToBe = Arrays.copyOfRange(howLateAreYouGoingToBe, 0, count + 1);
-		return howLateAreYouGoingToBe;
-	}
-	
+		return howLate;
+
+
+		}
+
+
 	public int countClassesOnADay(ArrayList<Meeting> scheduleForOneDay) {
 		return scheduleForOneDay.size();
 	}

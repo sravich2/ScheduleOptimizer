@@ -2,41 +2,36 @@ import java.util.Random;
 import java.util.ArrayList;
 
 /**
- * Contains helper methods for use throughout program NOTE: Edit/add Javadoc
- * documentation if you edit/add any methods to this class
- * 
- * @author Sachin
+ * Contains helper methods for use throughout program
+ * NOTE: Edit/add Javadoc documentation if you edit/add any methods to this class
  *
+ * @author Sachin
  */
 public class Worker {
 
 	/**
 	 * Converts sexagesimal time to decimal equivalent. Works for both military
 	 * time and AM/PM format
-	 * 
-	 * @param time
-	 *            string containing time in 24-hour format
+	 *
+	 * @param time string containing time in 24-hour format
 	 * @return time in decimal format
 	 */
 	public int convertTimeBase60To10(String time) {
+
 		int timeIn10;
+		int hourIn60 = Integer.valueOf(time.substring(0, 2));
+		String lastTwoChars = time.substring(time.length() - 2);
 
-			int hourIn60 = Integer.valueOf(time.substring(0, 2));
-			String lastTwoChars = time.substring(time.length()-2);
+		if (lastTwoChars.equals("PM") && hourIn60 != 12) {
+			hourIn60 += 12;
+		}
 
-			if (lastTwoChars.equals("PM") && hourIn60 != 12) {
-				hourIn60 += 12;
-			}
+		if (lastTwoChars.equalsIgnoreCase("PM") || lastTwoChars.equalsIgnoreCase("AM")) time = time.substring(0, time.length() - 3);
+		int minuteIn60;
+		if (time.contains(":")) minuteIn60 = Integer.valueOf(time.substring(3));
+		else minuteIn60 = Integer.valueOf(time.substring(2));
 
-			if (lastTwoChars.equalsIgnoreCase("PM") || lastTwoChars.equalsIgnoreCase("AM"))
-				time = time.substring(0, time.length()-3);
-			int minuteIn60;
-			if (time.contains(":"))
-				minuteIn60 = Integer.valueOf(time.substring(3));
-			else
-				minuteIn60 = Integer.valueOf(time.substring(2));
-
-			timeIn10 = hourIn60 * 60 + minuteIn60;
+		timeIn10 = hourIn60 * 60 + minuteIn60;
 
 		return timeIn10;
 
@@ -44,9 +39,8 @@ public class Worker {
 
 	/**
 	 * Converts time in decimal format to 24-hour format (Example: 1400, 2000)
-	 * 
-	 * @param time
-	 *            time in decimal format
+	 *
+	 * @param time time in decimal format
 	 * @return string containing time in 24-hour format
 	 */
 	public String convertTimeBase10To60(int time) {
@@ -59,38 +53,32 @@ public class Worker {
 	}
 
 	/**
-	 * Checks for time conflicts between 2 Modules. Checks truth of statement:
-	 * "There is a conflict between modules module1 and module2"
-	 * 
-	 * @param module1
-	 * @param module2
+	 * Checks for time conflicts between 2 Meetings.
+	 *
+	 * @param meeting1 First meeting
+	 * @param meeting2 Second meeting
 	 * @return boolean that represents existence of conflict
 	 */
-	public boolean checkConflict(Meeting module1, Meeting module2) {
+	public boolean checkConflict(Meeting meeting1, Meeting meeting2) {
 		boolean daysClash = false;
-		outerloop: for (int i = 0; i < module1.daysOfTheWeek.length; i++) {
-			for (int j = 0; j < module2.daysOfTheWeek.length; j++) {
-				if (module1.daysOfTheWeek[i] == module2.daysOfTheWeek[j]) {
+		outerloop:
+		for (int i = 0; i < meeting1.daysOfTheWeek.length; i++) {
+			for (int j = 0; j < meeting2.daysOfTheWeek.length; j++) {
+				if (meeting1.daysOfTheWeek[i] == meeting2.daysOfTheWeek[j]) {
 					daysClash = true;
 					break outerloop;
 				}
 			}
 		}
 
-		if (daysClash) {
-			if (Math.max(module1.startTime, module2.startTime) <= Math.min(module1.endTime,
-			        module2.endTime))
-				return true;
-		}
-		return false;
+		return daysClash && (Math.max(meeting1.startTime, meeting2.startTime) <= Math.min(meeting1.endTime, meeting2.endTime));
 	}
 
 
 	/**
 	 * Prints out time table representation of schedule
-	 * 
-	 * @param schedule
-	 *            Module[] representing schedule to be printed
+	 *
+	 * @param schedule ArrayList<Meeting> representing schedule to be printed
 	 * @return String containing time table representation of schedule
 	 */
 	public String toString(ArrayList<ArrayList<Meeting>> schedule) {
@@ -111,8 +99,7 @@ public class Worker {
 				}
 
 			}
-			if (!foundClass)
-				break;
+			if (!foundClass) break;
 			output.append("\n");
 		}
 
@@ -120,32 +107,26 @@ public class Worker {
 	}
 
 	/**
-	 * Converts ArrayList<Module> containing list of Modules to Module[][] containing
+	 * Converts ArrayList<Meeting> containing list of Modules to ArrayList<ArrayList<Meeting>> containing
 	 * day-wise references to Modules First dimension ranges from 0 to 4,
 	 * represents days of the working week
-	 * 
-	 * @param arr
-	 *            ArrayList<Meeting> whose day-wise representation is sought
-	 * @return ArrayList<ArrayList<Meeting>> containing day-wise representation of ArrayList<Meeting> arr
+	 *
+	 * @param meetingAL ArrayList<Meeting> whose day-wise representation is sought
+	 * @return ArrayList<ArrayList<Meeting>> containing day-wise representation of ArrayList<Meeting> meetingAL
 	 */
-	public ArrayList<ArrayList<Meeting>> convertModuleArrayToSchedule(ArrayList<Meeting> arr) {
+	public ArrayList<ArrayList<Meeting>> convertModuleArrayToSchedule(ArrayList<Meeting> meetingAL) {
 		ArrayList<ArrayList<Meeting>> schedule = new ArrayList<ArrayList<Meeting>>();
 
-		for (int i = 0; i < 5;i++) {
+		for (int i = 0; i < 5; i++) {
 			schedule.add(new ArrayList<Meeting>());
 		}
 
-		for (Meeting anArr : arr) {
-			if (String.valueOf(anArr.daysOfTheWeek).contains("M"))
-				schedule.get(0).add(anArr);
-			if (String.valueOf(anArr.daysOfTheWeek).contains("T"))
-				schedule.get(1).add(anArr);
-			if (String.valueOf(anArr.daysOfTheWeek).contains("W"))
-				schedule.get(2).add(anArr);
-			if (String.valueOf(anArr.daysOfTheWeek).contains("R"))
-				schedule.get(3).add(anArr);
-			if (String.valueOf(anArr.daysOfTheWeek).contains("F"))
-				schedule.get(4).add(anArr);
+		for (Meeting meeting : meetingAL) {
+			if (String.valueOf(meeting.daysOfTheWeek).contains("M")) schedule.get(0).add(meeting);
+			if (String.valueOf(meeting.daysOfTheWeek).contains("T")) schedule.get(1).add(meeting);
+			if (String.valueOf(meeting.daysOfTheWeek).contains("W")) schedule.get(2).add(meeting);
+			if (String.valueOf(meeting.daysOfTheWeek).contains("R")) schedule.get(3).add(meeting);
+			if (String.valueOf(meeting.daysOfTheWeek).contains("F")) schedule.get(4).add(meeting);
 		}
 
 		return schedule;
@@ -153,10 +134,9 @@ public class Worker {
 
 	/**
 	 * Converts string representing location to a format usable in URLs
-	 * Primarily for making calls to the Distance Matrix API
-	 * 
-	 * @param locationString
-	 *            String representing location
+	 * Primarily for making calls to the MapQuest API
+	 *
+	 * @param locationString String representing location
 	 * @return String representing location in URL format
 	 */
 	public String parseLocationToURLFormat(String locationString) {
@@ -171,11 +151,10 @@ public class Worker {
 
 	/**
 	 * Sorts the classes on a day in chronological order
-	 * 
-	 * @param scheduleForOneDay
-	 *            Module[] representing schedule on a day
-	 * @return Module[] representing same schedule with classes in chronological
-	 *         order
+	 *
+	 * @param scheduleForOneDay ArrayList<Meeting></Meeting> representing schedule on a day
+	 * @return ArrayList<Meeting> representing same schedule with classes in chronological
+	 * order
 	 */
 	public ArrayList<Meeting> sortByTimeScheduleForOneDay(ArrayList<Meeting> scheduleForOneDay) {
 		ArrayList<Meeting> finalSchedule = new ArrayList<Meeting>();

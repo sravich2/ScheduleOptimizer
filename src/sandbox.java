@@ -1,3 +1,5 @@
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -16,6 +18,7 @@ public class sandbox
 	 */
 	public static void main(String[] args)
 	{
+		System.out.println(DistanceRetriever.getTravelInfoBetweenAddresses("1304 W SPRINGFIELD AVENUE URBANA IL", "201 N. GOODWIN AVENUE URBANA IL")[1]);
 		/*
 		DistanceTimeMatrix help = new DistanceTimeMatrix();
 		try {
@@ -47,7 +50,7 @@ public class sandbox
 			{
 				if (i != j)
 				{
-					double[] distanceTimeMatrix = DistanceTimeMatrix.getTravelTimeAndDistance(buildingsAndAddresses.get(i)[1], buildingsAndAddresses.get(j)[1]);
+					double[] distanceTimeMatrix = DistanceTimeMatrix.getTravelInfoBetweenAddresses(buildingsAndAddresses.get(i)[1], buildingsAndAddresses.get(j)[1]);
 					System.out.println(buildingsAndAddresses.get(i)[0] + ",");
 					System.out.println(buildingsAndAddresses.get(j)[0] + ",");
 					System.out.println(distanceTimeMatrix[0] + ","); //miles
@@ -59,15 +62,8 @@ public class sandbox
 			e.printStackTrace();
 		}
 	*/
-	ArrayList<Integer> arr = new ArrayList<Integer>();
-		arr.add(2);
-		arr.add(10);
-		arr.add(5);
-		arr.add(1);
 
-		System.out.println(arr);
-		Collections.sort(arr);
-		System.out.println(arr);
+
 	}
 
 }

@@ -21,13 +21,20 @@ public class Driver {
 
 	public static final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	public static DocumentBuilder dBuilder = null;
-	public static ArrayList<String> coursesTaken;
+	public static ArrayList<String> coursesTaken = new ArrayList<String>();
+//	public static Preferences pref = new Preferences(true, 180, 120, 1, 3, true, 8, true);
 	public static Preferences pref = new Preferences();
 	public static final SchedulesBuilder scheduleBuilder = new SchedulesBuilder();
 
 	public static void main(String[] args) {
 
 		getUserInput();
+/*
+		coursesTaken.add("CS 225");
+		coursesTaken.add("CS 233");
+		coursesTaken.add("MATH 415");
+		coursesTaken.add("CS 498:C");
+*/
 
 		long time = System.currentTimeMillis();
 		Worker help = new Worker();
@@ -133,7 +140,6 @@ public class Driver {
 
 	public static void updateSectionOptionsForCourses(ArrayList<Course> coursesTaken) {
 
-		long time = System.currentTimeMillis();
 		for (Course course : coursesTaken) {
 			ArrayList<ArrayList<Section>> finalArray = new ArrayList<ArrayList<Section>>();
 			if (course.hasLectureDiscussion) {
@@ -151,6 +157,8 @@ public class Driver {
 	}
 
 	public static void updateCourseSectionMeetingObjects(ArrayList<String> coursesTaken, ArrayList<Course> courseList) {
+
+
 
 		try {
 			dBuilder = dbFactory.newDocumentBuilder();
@@ -172,9 +180,7 @@ public class Driver {
 				} else {
 					courseCodeNumber = tempCourseInfo[1].substring(0, tempCourseInfo[1].indexOf(":")).trim();
 					sectionPreference.add(tempCourseInfo[1].split("\\s*:\\s*")[1].trim());
-
 				}
-
 				Document courseInfo = dBuilder.parse("/Users/Sachin/workspace/Schedule Optimization/courseData.xml");
 				NodeList deptList = courseInfo.getDocumentElement().getElementsByTagName("dept");
 				for (int i = 0; i < deptList.getLength(); i++) {
@@ -237,11 +243,17 @@ public class Driver {
 								String startTime = meetingElement.getElementsByTagName("startTime").item(0).getTextContent();
 								String endTime = meetingElement.getElementsByTagName("endTime").item(0).getTextContent();
 								String building = meetingElement.getElementsByTagName("building").item(0).getTextContent();
+
+								if (!DistanceRetriever.dm.buildingList.contains(building)) {
+									DistanceRetriever.dm.addBuilding(building);
+								}
+
 								String instructor = meetingElement.getElementsByTagName("instructor").item(0).getTextContent();
 								String startDate = meetingElement.getElementsByTagName("startDate").item(0).getTextContent();
 								String endDate = meetingElement.getElementsByTagName("endDate").item(0).getTextContent();
 								prunedSectionList.get(prunedSectionList.size() - 1).meetingsInSection.add(new Meeting(prunedSectionList.get(prunedSectionList.size() - 1), type, days, startTime,
 										endTime, building, instructor, startDate, endDate));
+
 
 							}
 
@@ -252,6 +264,7 @@ public class Driver {
 					}
 
 				}
+
 
 			}
 
